@@ -13,7 +13,7 @@ echo "Machine: $(uname -m)"
 
 
 
-
+echo
 echo
 echo "Ram Information"
 echo 
