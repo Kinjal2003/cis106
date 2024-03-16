@@ -1,5 +1,5 @@
 ---
-Student: your name
+Student: Kinjal Maheshwaria
 semester: Spring 24
 Assignment: Lab 3
 ---

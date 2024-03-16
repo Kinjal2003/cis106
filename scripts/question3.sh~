@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Changing to: " /home/uchiha/Pictures
+echo "Changing to: " /home/uchiha/Videos
+echo "Current PWD:" /home/uchiha/Videos
+echo "Previous PWD:" /home/uchiha/Pictures
+
+echo""
+
+echo "Long list of cis106 $HOME/cis106"
+ls -l --color=auto $HOME
+

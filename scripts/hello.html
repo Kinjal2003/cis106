@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        button {
+          background-color: #04AA6D;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          font-size: 25px;
+    }
+    </style>
+    <body>
+        <button onclick="say();" id="btn" type="button">Say hello!</button>
+        <h1 id="msg"></h1>
+    </body>
+    <script>
+       function say(){
+            document.getElementById("msg").innerHTML = "Hello world!";
+       }
+    </script>
+</html>
+
