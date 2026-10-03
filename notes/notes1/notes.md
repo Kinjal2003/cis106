@@ -1,6 +1,6 @@
 #### What is Markdown?
 
-Markdown is a lightweight markup language with plain-text formatting syntax. It is designed to be easy to read and write in its raw form while providing a simple way to convert plain text into formatted HTML, PDF, or other formats. Developers and writers frequently use Markdown for documentation, README files, and taking notes because it allows formatting like headings, lists, bold text, and code blocks without requiring complex visual editors.
+Markdown is a lightweight markup language with plain-text formatting syntax. It is designed to be easy to read and write in its raw form while providing a simple way to convert plain text into formatted HTML, PDF, or other formats. Developers and writers frequently use Markdown for documentation, README files, and taking notes because it allows formatting like headings, lists, bold text, and code blocks without requiring complex visual editors which is VS code.
 
 #### What is Git?
 
