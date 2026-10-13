@@ -1,6 +1,7 @@
 
 # Weekreport 3 
 [lab 3](../../labs/lab3/lab3.md)
+
 [Notes 3](../../notes/notes3.md)
 
 # complete wr3 Practices
