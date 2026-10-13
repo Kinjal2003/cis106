@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>notes3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="notes-3">Notes 3</h1>
+<h2 id="what-is-a-graphical-user-interface-gui">What is a graphical user interface (GUI)?</h2>
+<ul>
+<li><strong>Definition</strong>: A visual way for users to interact with a computer using graphical elements like windows, icons, buttons, and menus, rather than typing text-only commands into a command-line interface (CLI).</li>
+<li><strong>Usage</strong>: Used in modern operating systems (like Windows, macOS, and Linux desktop environments) and applications to make computing intuitive and accessible via a mouse, keyboard, or touchscreen.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div><span class="hljs-comment"># Instead of typing a command-line instruction to open a folder:</span>
+$ <span class="hljs-built_in">cd</span> Documents/Projects &amp;&amp; <span class="hljs-built_in">ls</span>
+
+<span class="hljs-comment"># A GUI allows you to simply double-click a folder icon with your mouse to open a graphical window containing your files.</span>
+</div></code></pre>
+</li>
+</ul>
+<h2 id="what-is-a-desktop-environment">What is a desktop environment?</h2>
+<ul>
+<li><strong>Definition</strong>: A graphical user interface suite that provides the visual look and feel of an operating system, including window managers, icons, toolbars, wallpapers, and desktop applications.</li>
+<li><strong>Usage</strong>: Used on Linux and Unix-like systems to provide a full desktop experience (e.g., GNOME, KDE Plasma, XFCE).</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$XDG_CURRENT_DESKTOP</span>
+GNOME
+</div></code></pre>
+</li>
+</ul>
+<h2 id="how-do-i-access-the-command-line-interface-cli">How do I access the command line interface (CLI)?</h2>
+<ul>
+<li><strong>Definition</strong>: The method of opening a text-based terminal, virtual console, or terminal emulator to interact with the shell.</li>
+<li><strong>Usage</strong>: On Linux/macOS, use keyboard shortcuts like <code>Ctrl + Alt + T</code> (Ubuntu/GNOME) or open the &quot;Terminal&quot; application from the GUI application menu.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">whoami</span>
+username
+</div></code></pre>
+</li>
+</ul>
+<h2 id="what-is-a-virtual-console">What is a virtual console?</h2>
+<ul>
+<li><strong>Definition</strong>: A full-screen text-based interface provided by the Linux kernel, separate from the graphical desktop environment.</li>
+<li><strong>Usage</strong>: Accessed via function keys (e.g., <code>Ctrl + Alt + F1</code> through <code>F6</code>) to log into a raw system console without a GUI running.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div><span class="hljs-comment"># Pressing Ctrl + Alt + F3 switches to Virtual Console 3 (tty3):</span>
+login: user
+Password:
+</div></code></pre>
+</li>
+</ul>
+<h2 id="what-is-a-terminal-emulator">What is a terminal emulator?</h2>
+<ul>
+<li><strong>Definition</strong>: A software program that mimics a physical computer terminal inside a graphical desktop environment, providing a text window to access the shell.</li>
+<li><strong>Usage</strong>: Opened as a GUI application (such as GNOME Terminal, Konsole, or Alacritty) to run CLI commands.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">uname</span> -s
+Linux
+</div></code></pre>
+</li>
+</ul>
+<h2 id="what-is-bash">What is bash?</h2>
+<ul>
+<li><strong>Definition</strong>: <strong>B</strong>ourne <strong>A</strong>gain <strong>SH</strong>ell, a Unix shell and command language widely used as the default command interpreter for Linux and macOS.</li>
+<li><strong>Usage</strong>: Used to execute commands, automate tasks via shell scripts, and interact with the operating system.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$<span class="hljs-built_in">echo</span><span class="hljs-variable">$BASH_VERSION</span>
+5.1.16(1)-release
+</div></code></pre>
+</li>
+</ul>
+<h2 id="what-is-the-shell-prompt">What is the shell prompt?</h2>
+<ul>
+<li><strong>Definition</strong>: A visual text string (or indicator) at the beginning of a terminal line that signals the system is ready to accept user input.</li>
+<li><strong>Usage</strong>: Typically displays helpful context such as the current username, system hostname, and working directory, ending with a character like <code>$</code> (for standard users) or <code>#</code> (for the root user).</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>username@hostname:~$
+</div></code></pre>
+</li>
+</ul>
+<h2 id="clear"><code>clear</code></h2>
+<ul>
+<li><strong>Definition</strong>: Clears the terminal screen, removing all previously displayed text and scrolling output to give you a fresh, clean workspace. (Your command history is still preserved and can be accessed using the up arrow key).</li>
+<li><strong>Usage</strong>: Type <code>clear</code> at the command prompt and press <code>Enter</code>. You can also use the keyboard shortcut <strong><code>Ctrl + L</code></strong> as a quick shortcut to achieve the exact same result.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">ls</span> -la
+<span class="hljs-comment"># (lots of files and text displayed on screen)</span>
+$ clear
+<span class="hljs-comment"># (screen is now wiped clean, leaving only a fresh prompt at the top)</span>
+</div></code></pre>
+</li>
+</ul>
+<h2 id="echo"><code>echo</code></h2>
+<ul>
+<li><strong>Definition</strong>: Prints text, strings, or the values of variables to the terminal standard output.</li>
+<li><strong>Usage</strong>: Type <code>echo</code> followed by the text or variable you want to display.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello, World!&quot;</span>
+Hello, World!
+</div></code></pre>
+</li>
+</ul>
+<h2 id="date"><code>date</code></h2>
+<ul>
+<li><strong>Definition</strong>: Displays or sets the system's current date and time.</li>
+<li><strong>Usage</strong>: Type <code>date</code> to view the current date and time, or use options for specific formats.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">date</span>
+Mon Oct 12 22:30:00 EDT 2026
+
+</div></code></pre>
+</li>
+</ul>
+<h2 id="free"><code>free</code></h2>
+<ul>
+<li><strong>Definition</strong>: Displays the total amount of free and used physical and swap memory in the system, along with buffers and caches.</li>
+<li><strong>Usage</strong>: Type <code>free</code> (commonly used with the <code>-h</code> flag for human-readable units like MB or GB).</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:            7.7Gi       2.1Gi       3.5Gi       150Mi       2.1Gi       5.2Gi
+Swap:         2.0Gi          0B       2.0Gi
+</div></code></pre>
+</li>
+</ul>
+<h2 id="uname"><code>uname</code></h2>
+<ul>
+<li><strong>Definition</strong>: Prints system information, such as the operating system kernel name, network node hostname, kernel release, and machine architecture.</li>
+<li><strong>Usage</strong>: Type <code>uname</code> (commonly used with <code>-a</code> to print all available information).</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">uname</span> -a
+Linux mycomputer 5.15.0-88-generic <span class="hljs-comment">#98-Ubuntu SMP Mon Oct 2 15:18:56 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux</span>
+</div></code></pre>
+</li>
+</ul>
+<h2 id="history"><code>history</code></h2>
+<ul>
+<li><strong>Definition</strong>: Displays the list of previously executed commands from your command history buffer.</li>
+<li><strong>Usage</strong>: Type <code>history</code> to view your past commands, often paired with <code>grep</code> to search for specific ones.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">history</span>
+  1  <span class="hljs-built_in">ls</span> -la
+  2  clear
+  3  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello&quot;</span>
+  4  <span class="hljs-built_in">history</span>
+</div></code></pre>
+</li>
+</ul>
+<h2 id="man"><code>man</code></h2>
+<ul>
+<li><strong>Definition</strong>: An interface to the system's reference manuals, providing detailed documentation for commands, functions, and files.</li>
+<li><strong>Usage</strong>: Type <code>man</code> followed by the name of the command you want to learn about. Press <code>q</code> to exit the manual.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ man <span class="hljs-built_in">ls</span>
+</div></code></pre>
+</li>
+</ul>
+<h2 id="tldr"><code>tldr</code></h2>
+<ul>
+<li><strong>Definition</strong>: Provides simplified, community-driven, practical examples and use cases for command-line tools.</li>
+<li><strong>Usage</strong>: Type <code>tldr</code> followed by the command name for quick, straightforward examples without reading the full manual.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ tldr tar
+</div></code></pre>
+</li>
+</ul>
+<h2 id="tldr-1"><code>tldr</code></h2>
+<ul>
+<li><strong>Definition</strong>: Provides simplified, community-driven, practical examples and use cases for command-line tools.</li>
+<li><strong>Usage</strong>: Type <code>tldr</code> followed by the command name for quick, straightforward examples without reading the full manual.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ tldr tar
+</div></code></pre>
+</li>
+</ul>
+<h2 id="hostname"><code>hostname</code></h2>
+<ul>
+<li><strong>Definition</strong>: Displays or sets the current host/network name of the system.</li>
+<li><strong>Usage</strong>: Type <code>hostname</code> to print the system's network name.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ hostname
+my-ubuntu-pc
+</div></code></pre>
+</li>
+</ul>
+<h2 id="df"><code>df</code></h2>
+<ul>
+<li><strong>Definition</strong>: Reports the amount of disk space used and available on file systems.</li>
+<li><strong>Usage</strong>: Type <code>df</code> (commonly used with <code>-h</code> for human-readable sizes).</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">df</span> -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        50G   20G   28G  42% /
+</div></code></pre>
+</li>
+</ul>
+<h2 id="du"><code>du</code></h2>
+<ul>
+<li><strong>Definition</strong>: Estimates and summarizes file and directory space usage (Disk Usage).</li>
+<li><strong>Usage</strong>: Type <code>du</code> followed by a path, usually combined with <code>-sh</code> for a summary in human-readable format.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ <span class="hljs-built_in">du</span> -sh /var/log/
+450M    /var/log/
+</div></code></pre>
+</li>
+</ul>
+<h2 id="figlet"><code>figlet</code></h2>
+<ul>
+<li><strong>Definition</strong>: Generates large, decorative ASCII-art text banners from normal user input.</li>
+<li><strong>Usage</strong>: Type <code>figlet</code> followed by the text you want to convert into a banner.</li>
+<li><strong>Example</strong>:<pre class="hljs"><code><div>$ figlet <span class="hljs-string">&quot;Hello&quot;</span>
+ _   _      _ _       
+| | | | ___| | | ___  
+| |_| |/ _ \ | |/ _ \ 
+|  _  |  __/ | | (_) |
+|_| |_|\___|_|_|\___/</div></code></pre>
+</li>
+</ul>
+
+</body>
+</html>
