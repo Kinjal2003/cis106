@@ -2,7 +2,7 @@ Name: KInjal Maheshwaria
 
 
 ###### Question 1
-![img](notes5.1.pngpng)
+![img](notes5.1.png)
 
 ###### Question 2
 ![img](notes5.2(1).png)

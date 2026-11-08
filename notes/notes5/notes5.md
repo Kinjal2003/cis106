@@ -142,19 +142,3 @@ A relative path specifies the location of a file or directory relative to your c
 * **Your home directory:** The specific private directory assigned to your individual user account where your personal files and settings are stored (e.g., `/home/john` or `C:\Users\John`).
 * **The home directory:** The parent system directory that contains all the individual home folders for every user registered on the system (e.g., `/home` on Unix/Linux or `C:\Users` on Windows).
 
-
-###### Question 1
-![img](notes5.1.pngpng)
-
-###### Question 2
-![img](notes5.2(1).png)
-![img](notes5.2.png)
-
-###### Question 3
-![img](notes5.3.png)
-
-###### Question 4
-![img](notes5.4.png)
-
-###### Question 5
-![img](notes5.5.png)
